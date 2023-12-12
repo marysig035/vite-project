@@ -8,18 +8,19 @@ function App() {
 
   const [featPupId, setFeatPupId] = useState(null)
 
-  console.log(puppyList)
+  const featuredPup = puppies.find((pup) => pup.id === featPupId)
+
+  console.log(puppies)
 
   return (
     <>
       <div className="App">
 
         {puppies.map((puppy) => {
-          return (
-            <p onClick={handleClick} key={puppy.id}>
-              {puppy.name}
-            </p>
-          );
+          return (<p onClick={() => {
+            setFeatPupId(puppy.id)
+          }} key={puppy.id}>
+            {puppy.name}</p>)
         })}
 
         {featPupId && (
